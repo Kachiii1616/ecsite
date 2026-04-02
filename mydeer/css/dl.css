@@ -1,0 +1,27 @@
+#dlArea {
+   padding: 10px 20px;
+   margin: 10px 20px;
+   text-align: center;
+}
+
+/* ボタンのスタイル */
+.btn-link {
+    display: inline-block;
+    padding: 18px 80px;
+    background-color:  #080808; /* 背景色 */
+    color: #ffffff; /* テキスト色 */
+    text-decoration: none;
+    border-radius: 0px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-link:hover {
+	background-color: #c7887f;
+	margin-left: 20px;
+	transition-property: background-color, margin-left;
+	transition-duration: 300ms;
+	transition-timing-function: ease-in;
+	transition-delay: 0ms;
+}

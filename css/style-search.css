@@ -1,0 +1,1142 @@
+/*お決まりフレーズ*/
+@charset "utf-8";
+
+/*全体のフォント指定*/
+body {
+  font-family: 'Noto Serif JP', serif;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  background-color: #f8f3e5;
+
+}
+/*画像調整：max-width:100%;：子要素が小さい場合はそのまま(使いやすい)*/
+img {
+    max-width: 100%;
+  }
+  /*---[menu]ハンバーガーメニュー＋画像---*/
+
+/* メニューを画面上部に固定表示しています */
+
+.gMenu {
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 100%;
+	z-index: 80;
+}
+/* メニューアイコンを画面右上に固定しています */
+
+.gMenu .menu-icon {
+	cursor: pointer;
+	position: absolute;
+	right: 5px;
+	top: 12px;
+	padding-top: 23px;
+	height: 12px;
+}
+/* メニューアイコン（三本線）の真ん中の線です */
+
+.gMenu .menu-icon .navicon {
+	background: #504f4f;
+	/* 色は自由に変更可能です */
+	display: block;
+	height: 2px;
+	/* 太さ */
+	width: 25px;
+	/* 長さ */
+	position: relative;
+	transition: background .4s ease-out;
+	/* 形が変わる時のアニメーション */
+}
+/* メニューアイコン（三本線）の上と下の線を疑似要素で追加 */
+
+.gMenu .menu-icon .navicon::before, .gMenu .menu-icon .navicon::after {
+	background: #504f4f;
+	/* 色は自由に変更可能です */
+	content: '';
+	display: block;
+	height: 100%;
+	position: absolute;
+	transition: all .4s ease-out;
+	/* 形が変わる時のアニメーション */
+	width: 100%;
+}
+.gMenu .menu-icon .navicon::before {
+	top: 10px;
+}
+/* 位置を上にずらしています */
+
+.gMenu .menu-icon .navicon::after {
+	top: -10px;
+}
+/* 位置を下にずらしています */
+
+/* 表示されるメニューです */
+
+.gMenu .menu {
+	background-color: rgba(255, 255, 255, 0.9);
+	overflow: hidden;
+	max-height: 0;
+	/* ★最初は高さを0にして非表示状態に */
+	transition: max-height .6s;
+	/* 表示されるときのアニメーション */
+	text-align: center;
+}
+/* メニュー部分のデザインです */
+/* メニュー:上の余白 */
+.gMenu .menu li:first-of-type {
+	padding-top: 70px;
+}
+.gMenu .menu li a {
+	display: block;
+	padding: 24px 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.gMenu .menu li a:hover {
+	background-color: #f4f4f4;
+}
+/* チェックボックスは常に非表示です */
+
+.gMenu .menu-btn {
+	display: none;
+}
+/* ▼▼▼以下はチェックボックスがONの時の状態です▼▼▼ */
+
+.gMenu .menu-btn:checked~.menu {
+	max-height: 600px;  /*338px*/
+	/* ★チェックボックスがオンの時高さを338pxにして表示させます */
+	transition: max-height .7s;
+}
+/* メニューボタンの中央の線を非表示に */
+
+.gMenu .menu-btn:checked~.menu-icon .navicon {
+	background: transparent;
+}
+/* メニューボタンの上下の線を45度傾けて✕印を作ります */
+
+.gMenu .menu-btn:checked~.menu-icon .navicon::before {
+	transform: rotate(-45deg);
+	top: 0;
+}
+.gMenu .menu-btn:checked~.menu-icon .n.double_lineavicon::after {
+	transform: rotate(45deg);
+	top: 0;
+}
+/*---[menu]ハンバーガーメニュー＋画像---*/
+
+/*---HOMEボタン---*/
+  .html {
+    scroll-behavior: smooth;
+  }
+  .pagetop {
+    height: 35px;
+    width: 60px;
+    position: fixed;
+    left: 15px;
+    bottom: -5px;
+    background: #f8f3e5  ;
+    border-radius: 80px 80px 0px 0px;
+    /*border: solid 2px #000;*/
+    /*border-radius: 50%;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    font-size: 12px;
+  }
+  
+  /*
+  ホームボタン　矢印ver
+  .pagetop__arrow {
+    height: 10px;
+    width: 10px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    transform: translateY(20%) rotate(-45deg);
+  }
+  */
+
+
+/*ヘッダー　背景：色指定*/
+header{
+    background-color: #f8f3e5;
+  }
+  
+  /*ヘッダーのayakalABOを大きくする*/
+  .gnavayakaLABO{
+    font-size: 35px;
+    /*font-weight: bold;*/
+  }
+  
+  .srcimg img{
+    height: 40px;
+    width: 40px;
+    padding:2px 0px 0px;
+  }
+  
+  .iconimg img{
+   height: 35px;
+   width: auto;
+   padding:2px 0px 0px;
+  }
+  
+  /*グローバルnav固定：要素の配置(ポジションプロパティ)：position: fixed;動かない*/
+  .gnav {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     background-color: #f8f3e5;
+     z-index:1;
+  }
+  
+  /*グローバルnavを広げる：フレックス：①親要素：justify-content：両端あり・spase-around*/
+  .gnavul {
+    display:flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0px auto;
+    padding: 10px 0px;
+  }
+  /*グランドメニュー２重線*/
+  .gnavul {
+    border-top: .5px double #000000;
+    border-bottom: .5px double #000000;
+    padding: 3px 0px 3px;
+    margin: 5px 0px;
+  }
+  
+  /*footer　背景*/
+  footer {
+      background-color: #f8f3e5;
+      text-align:center;
+      font-size: 10px;
+    }
+    /*footer 幅*/
+    .footertop {
+        line-height: 40px;
+    }
+    /*footer　傍線*/
+    .example3{
+        padding: 10px;
+        background: #f8f3e5;
+        position: relative;
+    }
+  
+  /*ローカルナビ 位置：センターへ*/
+  .localnavul{
+    display: flex;
+    justify-content: center;
+    }
+
+/*ローカルナビ 上下幅/文章間：広く*/
+.localnavul li {
+    margin: 14px 5px;
+  }
+
+/*ローカルナビ マウスオーバー*/
+.localnavul li a:hover{
+    text-decoration: underline solid;
+  }
+
+
+/*--------------------------------------------*/
+
+h2{
+    font-size:27px;
+    display: flex;
+    justify-content: center;
+    padding: 0px 0px 0px;
+    line-height:1;
+}
+article h3 {
+    font-family: 'Noto Sans JP', sans-serif;
+    border-bottom: 2px solid #6ab547;
+    margin-bottom: 20px;
+    font-size: 28px;
+    /*font-weight: 600;
+    background-image: url(../images/h2_icon.png);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    padding: 20px 10px 10px 48px;*/
+    padding: 20px 10px 10px 10px;
+}
+h4 {
+    border-bottom: 2px solid #6ab547;
+    margin: 20px 0px;
+    font-size: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+h5 {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #91c777;
+    border-radius: 22px 22px 22px 22px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    padding:10px 20px 10px 20px;
+    display: inline-block;
+    margin: 10px 0px;
+}
+h6 {
+  font-family: 'Noto Sans JP', sans-serif; 
+  font-size:20px;
+  margin:  10px 0px 5px 0px;
+}
+article p {
+   font-family: 'Noto Sans JP', sans-serif;
+}
+article ul li {
+   list-style-type: disc;
+   font-family: 'Noto Sans JP', sans-serif;
+   margin: 0px 20px;
+}
+
+.intro p {
+  margin : 10px;
+}
+
+.bloghome h1{
+  font-size:35px;
+  display: flex;
+  justify-content: center;
+  padding: 0px 0px 20px;
+  line-height:1;
+}
+
+.bloghome h2{
+  font-family: 'Noto Sans JP', sans-serif;  
+  font-size:27px;
+  display: flex;
+  justify-content: center;
+  padding: 0px 0px 0px;
+  line-height:1;
+}
+
+.linkp{
+  color: #91c777;
+}
+
+.linkp:hover {
+  filter: brightness(102%);
+}
+ 
+/*--------------------------------------------*/
+
+main {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px 0px 72px;
+    margin: 80px 0px 20px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.16);
+  }
+
+  aside nav {
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.16);
+    padding: 20px 28px;
+    margin-bottom: 20px;
+  }
+  aside nav h2 {
+    margin-bottom: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #7c5d48;
+  }
+  aside nav ul {
+    font-size: 14px;
+  }
+  .categoryNav ul li {
+    list-style-type: square;
+    color: #7c5d48;
+    margin: 0 0 16px 20px;
+  }
+  .categoryNav ul li a {
+    color: #333333;
+  }
+
+  .recentNav ul li {
+    border-bottom: 1px solid #7c5d48;
+    padding-bottom: 10px;
+    margin-bottom: 22px;
+  }
+  .recentNav ul {
+    height: 240px;
+    overflow: hidden scroll;
+  }
+  
+.eyecatch {
+    margin: 20px 0px;
+  }
+
+
+
+/*--------------------------------------------*/
+
+
+.about {
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.16);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+  }
+
+  /*about タイトル*/
+  .about h2 {
+    font-size:40px;
+    display: flex;
+    justify-content: center;
+    padding: px 0px 5px;
+  }
+  
+  /*about 文全体：中央揃え*/
+  .about {
+    font-size: 12.5px;
+    text-align: center;
+  }
+  /*about youtube文*/
+  .youtube {
+    padding: 2px;
+    font-family: 'Noto Serif JP', serif;
+  
+  }
+  /*about hobby文*/
+  .hobby {
+    padding: 2px;
+    font-family: 'Noto Serif JP', serif;
+  
+  }
+  /*about histry文*/
+  .histry ul li p {
+    display: inline-block;
+    text-align: left;
+    font-family: 'Noto Serif JP', serif;
+  }
+  
+  /*about img*/
+  .about img { 
+    text-align:center;
+  }
+  /*about img*/
+  .about img { 
+    height: 180px;
+    width: 100%;
+    object-fit:contain; 
+  }
+  /*about ボタン*/
+  .aboutbtn {
+    font-family: 'Roboto', sans-serif; 
+    font-size: 20px;
+    background-color: #f8f3e5;
+    border:1px solid #000000;
+    margin: 15px auto 0px;
+    width:200px ;
+    /*filter: drop-shadow(10px 10px #ccc); */
+  }
+  .aboutbtnm {
+    line-height: 35px;
+  }
+  /*--------------------------------------------*/
+  
+  .mydeerh3pc {
+    display: none;
+  }
+  
+  /*mydeer タイトル*/
+  .mydeerh2  {
+    font-size:40px;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px 0px;
+  }
+  /*mydeer サブタイトル*/
+  .mydeer h3 {
+    font-size:30px;
+    display: flex;
+    justify-content: center;
+    padding: 0px 0px 20px;
+    text-decoration:underline solid  #e0c2ae 5px ;
+  }
+  /*上部空白*/
+  .mydeertop {
+    line-height: 80px;
+  }
+  /*上部空白 色*/
+  #mydeerArea {
+    background-color:#2c2f29;
+    z-index:1;
+    } 
+  /*背景*/
+  .mydeer  {
+    /*background-image: linear-gradient(180deg,#2c2f29 0%,#2c2f29 10%,#f8f3e5 10%,#f8f3e5 100%);*/
+    background-color:#f8f3e5;
+    border-radius: 80px 80px 0px 0px;
+  }
+  /*mydeer パソコン大きさ*/
+  #mydeerArea img{
+    height: 220px;
+    width: 100%;
+    object-fit: contain;
+  }
+  /*mydeer パソコン余白・leaf3-1*/
+  .maydeerimg {
+    padding: 0px 0px 0px;
+    position: relative;
+  }
+  
+  /*.mydeer leaf3-2
+  .maydeerimg::before {
+    content:url(../images/leaf/leaf.mobile.png);
+    position: absolute;
+    left: 0px;
+    bottom: -20px;
+  }
+  */
+  /*mydeer leaf3-2
+  .maydeerimg::before {
+    content:url(../images/leaf/deco.left.png);
+    position: absolute;
+    left: 20px;
+    bottom: -20px;
+  }*/
+  /*mydeer lea3-3
+  .maydeerimg::after {
+    content:url(../images/leaf/deco_right.png);
+    position: absolute;
+    left: 50px;
+    bottom: 20px;
+  }
+  */
+  /*mydeer 文章：フォント種類*/
+  .mydeerol { 
+    font-family: 'Noto Sans JP', sans-serif;
+    }
+    .mydeerp {
+    font-family: 'Noto Sans JP', sans-serif;
+    }
+    .mydeer h3 {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    /*mydeer 文章：位置　親要素(文章全体)を中央揃えにして子要素(文書中身)は左揃えに*/
+    .mydeer{
+      text-align: center;
+    }
+    .mydeerol ol li p{
+      display: inline-block;
+      text-align: left;
+    }
+    .about1 {
+      padding: 5px;
+    }
+    .about2 {
+      padding: 5px;
+    }
+    .about3 {
+      padding: 5px;
+    }
+    .mydeerp {
+      padding: 5px;
+      margin: 15px auto 15px;
+    }
+  /*mydeer 鹿：block位置　親要素relative 子要素absolute*/
+  .mydeer {
+  position: relative;
+  }
+  .deer {
+    width: 75px;
+    height: auto;
+    position: absolute;
+    left: 280px;
+    bottom: 30px;
+  }
+  /*mydeer ボタン*/
+  .mydeerbtn {
+    font-family: 'Roboto', sans-serif; 
+    font-size: 20px;
+    background-color: #f8f3e5;
+    border:1px solid #000000;
+    margin: 12px auto 0px;
+    width:200px ;
+  }
+  .mydeerbtnm {
+    line-height: 50px;
+  }
+/*--------------------------------------------*/
+/*contact ボタン*/
+.contactbtn {
+    text-align: center;
+    font-family: 'Roboto', sans-serif; 
+    font-size: 20px;
+    font-weight: bold;
+    background-color:  #f8f3e5;
+    margin: 10px auto 0px;
+    width:220px ;
+    padding: 10px 0;
+    border-radius: 40px;
+  }
+  .contactbtnm {
+    line-height: 115px;
+  }
+  /*contact タイトル*/
+  .contact h2  {
+    font-size:40px;
+    display: flex;
+    justify-content: center;
+    padding: 175px 0px 0px;
+  }
+  /*contact サブタイトル*/
+  .contact h3 {
+    font-size:30px;
+    padding: 0px 0px 15px;
+  }
+  .follow {
+    text-align: center;
+  }
+#contactArea img {
+    height: 80px;
+    width:auto;
+  }
+  .socialmedia  {
+  display:flex;
+  justify-content:space-evenly;
+  padding: 15px 0px 20px;
+  }
+.contact h3 {
+    text-align: center;
+} 
+  .contact {
+    background-color: #ffffff;
+}
+/*--------------------------------------------*/
+
+
+/*footer　背景*/
+footer {
+    background-color: #f8f3e5;
+    text-align:center;
+    font-size: 10px;
+  }
+  /*footer 幅*/
+  .footertop {
+      line-height: 40px;
+  }
+  /*footer　傍線*/
+  .example3{
+      padding: 10px;
+      background: #f8f3e5;
+      position: relative;
+  }
+
+/*--------------------------------------------*/
+
+.sidebarp {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    text-align: center;
+    margin: 120px auto 20px;
+  }
+  
+  .sidebar h3 {
+    font-size: 25px;
+    margin: 20px auto 0px;
+  }
+  
+  .searchwrap {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  .sidebar-container {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;      
+  }
+  
+  .sidebar-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+    z-index: 70;
+    position: fixed;
+  }
+  
+  #sidebar-toggle:checked + .sidebar-button .sidebar-icon {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    
+    #sidebar-toggle:checked + .sidebar-button .sidebar-icon::before {
+      transform: rotate(-90deg) translateY(10px);
+    }
+    
+    #sidebar-toggle:checked + .sidebar-button .sidebar-icon::after {
+      transform: rotate(-90deg) translateY(-10px);
+    }
+    
+    .sidebar {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 40%;
+      background-color: rgba(255, 255, 255, 0.9);
+      transition: top 0.6s;
+    position: fixed;
+    z-index: 1;
+  }
+  
+  #sidebar-toggle:checked ~ .sidebar {
+      top: 0;
+    }
+    
+  #sbutton:checked ~ .sidebar {
+      top: 0;
+    }
+  
+  .search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
+      margin: 0 20px 0;
+  }
+  
+  .searchinput {
+      width: 80%;
+      height: 40px;
+      border: none;
+      border-radius: 20px;
+      padding: 0 20px;
+      outline: none;
+      background-color: #e7e7e7;
+  }
+  
+  .searchbutton  {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      margin-left: 10px;
+      background-color: #333;
+      outline: none;
+      color: #333;
+      z-index:1;
+    }
+  
+    .nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto 0px;
+    }
+  
+    .nav ul {
+      list-style: none;
+    }
+    
+    .nav ul li {
+      margin: 20px 0;
+    }
+    
+    .nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 20px;
+    }
+  
+    .headershikaku {
+      color:#f8f3e5;
+    }
+  
+    .searchimg {
+    display: inline-block; /* なくても大丈夫だけど、念の為 */
+    position: relative;    /* 基準値とする */
+    }
+    
+    .searchimg::before {
+    content: "";           /* 疑似要素に必須 */
+    width: 30px;           /* アイコンの横幅 */
+    height: 30px;          /* アイコンの高さ */
+    background: url(../images/header/search.png) no-repeat center / auto 100%; /* 背景にアイコン画像を配置 */
+    display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
+    position: absolute;    /* 相対位置に指定 */
+    top: 5px;              /* アイコンの位置。微調整してね */
+    left: 14px;            /* アイコンの位置。微調整してね */
+    filter : invert(100%)
+      brightness(75%);
+    z-index: -1;
+    }
+    
+    .searchimg input {
+    padding: px  px em; /* アイコンを設置するため左の余白を多めに指定*/
+    }
+
+/* 検索結果のスタイル */
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 20px;
+}
+
+.result {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.intro h3 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  padding:0;
+}
+
+.intro p {
+  font-size: 10px;
+  margin:10px 0;
+}
+
+.intro img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.intro .date {
+  font-size: 8px;
+  color: #999;
+  text-align: right;
+  margin:5px 0;
+}
+
+
+
+/*--------------------------------------------------------------------------------------*/
+    
+@media screen and (min-width: 920px) {
+
+/*--------------------------------------------------------------------------------------*/
+    
+       
+      
+        /*ヘッダー*/
+          /* メニューアイコンの位置 */
+          .gMenu {
+            right: 0px;
+            top: 0px;
+          }
+          /* メニューアイコンの範囲 */
+          .gMenu .menu-icon {
+            padding: 55px 80px 0px 0px;
+            height: 38px;
+          }
+          /* メニューアイコン（三本線）の真ん中の線です */
+          .gMenu .menu-icon .navicon {
+            width: 50px;
+            /* 長さ */
+          }
+        
+        /* メニュー:上の余白 */
+        .gMenu .menu li:first-of-type {
+          padding-top: 130px;
+        }
+        
+          /*サーチ大きさ*/
+          .srcimg img {
+            height: 90px;
+            width: 120px;
+            padding: 5px 20px 0px;
+            margin: 10px 0px 0px;
+          }
+          /*アイコン大きさ*/
+          .iconimg img {
+            height: 85px;
+            width: auto;
+            padding: 10px 0px 0px;
+            margin: 10px 0px 0px;
+          }
+          /*ヘッダーのayakalABOを大きくする*/
+          .gnavayakaLABO {
+            font-size: 70px;
+            /*font-weight: bold;*/
+            padding: 5px 0px 5px;
+          }
+          /*サーチ大きさ*/
+          .srcimg {
+            position: absolute;
+            top: 5px;
+            left: 80px;
+            height: 90px;
+            width: 120px;
+          }
+          /*アイコン大きさ*/
+          .iconimg {
+            position: absolute;
+            bottom: 40px;
+            right: 150px;
+            height: 80px;
+            width: auto;
+          }
+          .gnavayakaLABO {
+            top: 100px;
+            text-align: center;
+            font-size: 70px;
+          }
+
+/*--------------------------------------------------------------------------------------*/
+    
+/*HOMEボタン*/
+.pagetop {
+    height: 60px;
+    width: 120px;
+    font-size: 25px;
+    position: fixed;
+    left: 60px;
+    bottom: -7px;
+    background: #f8f3e5  ;
+    border-radius: 80px 80px 0px 0px;
+    /*border: solid 2px #000;*/
+    /*border-radius: 50%;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+
+/*トップページ　ローカルナビ位置*/
+.localnavul{
+  font-size: 2vw;
+  display: flex;
+  justify-content: left;
+  margin: 0px 0px 0px 0px;
+ }
+
+/*h1*/
+h1 {
+  font-size: 60px;
+  padding: 140px 0px 0px;
+  line-height:1;
+}
+/*--------------------------------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------------------*/
+
+/*背景*/
+.mydeer  {
+    background-color:#f8f3e5;
+    border-radius: 300px 300px 0px 0px;
+  }
+  /*上部空白*/
+  .mydeertop {
+    line-height: 140px;
+  }
+  /*上部空白 色*/
+  #mydeerArea {
+    background-color:#2c2f29;
+    z-index:1;
+    } 
+  
+  /*mydeer タイトル*/
+  .mydeerh2  {
+    font-size:60px;
+    padding: 50px 0px 50px;
+  }
+  /*mydeer サブタイトルモバイル消去*/
+  .mydeerh3m {
+    display: none;
+  }
+  /*mydeer サブタイトル位置*/
+  .mydeerh3pc {
+    display: block;
+    padding: 5px 0px 5px;
+    text-decoration:underline solid  #e0c2ae 5px ;
+  }
+  /*mydeer サブタイトル*/
+  .mydeerh3pc h3 {
+    font-size: 47px;
+  }
+  /*mydeer 文字の大きさ*/
+  .mydeer {
+    font-size: 35px;
+  }
+  
+  /*mydeer パソコン大きさ*/
+  #mydeerArea img{
+    height:500px;
+    width: 100%;
+    object-fit: contain;
+    }
+  
+  /*mydeer 鹿：block位置　親要素relative 子要素absolute*/
+  .mydeerbox {
+    position: relative;
+    }
+    
+  /*mydeer 鹿大きさ*/
+  .deer {
+    width: 170px;
+    height: auto;
+    position: absolute;
+    left: 350px;
+    bottom: -170px;
+  }
+  
+  /*mydeer 2分割*/
+  .mydeerwrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .maydeerimg img {
+    display: block;
+  }
+  .mydeerp {
+    padding: 5px;
+    margin: 10px auto 10px;
+  }
+  
+  /*mydeer ボタン*/
+  .mydeerbtn {
+    font-size: 30px;
+    margin: 20px auto 0px;
+    width:300px ;
+  }
+  
+  .mydeerbtnm {
+    line-height: 100px;
+  }
+
+/*--------------------------------------------------------------------------------------*/
+
+/*contact タイトル*/
+.contact h2  {
+    font-size:60px;
+    padding: 240px 0px 0px;
+  }
+  /*contact サブタイトル*/
+  .contact h3 {
+    font-size:50px;
+    padding: 0px 0px 20px;
+  }
+  
+  /*contact ボタン*/
+  .contactbtn {
+    font-size: 33px;
+    font-weight: bold;
+    margin: 10px auto 0px;
+    width:300px ;
+    padding: 10px 0;
+    border-radius: 40px;
+  }
+  .follow {
+    font-size: 38px;
+  }
+#contactArea   img {
+    height: 150px;
+    width:auto;
+    margin: 0 50px;
+  }
+  
+  .socialmedia  {
+    display:flex;
+    justify-content:center;
+    padding: 15px 0px 20px;
+    }
+  
+
+/*--------------------------------------------------------------------------------------*/
+
+.divblog {
+  width: 1240px;
+  margin: 90px auto 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+main {
+  flex-basis: 920px;
+  padding: 62px 72px 32px 72px;
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.16);
+  margin-top: 60px;
+}
+aside {
+  flex-basis: 284px;
+  margin-top: 60px;
+}
+aside nav {
+  margin-bottom: 24px;
+}
+
+.recentNav ul {
+  height: 240px;
+  overflow: hidden scroll;
+}
+
+
+	/*--------------------------------------------------------------------------------------*/
+
+	.sidebarp{
+	font-family: 'Playfair Display', serif;
+	font-size: 30px;
+	text-align: center;
+	margin: 160px auto 20px;
+}
+	.sidebar-button img {
+		height: 90px;
+		width: 120px;
+		padding: 0px 20px 0px;
+		margin: 0px 60px 10px;
+        z-index: 92;
+        position: fixed;
+	}
+
+	.sidebar {
+		position: absolute;
+		top: -100%;
+		left: 0;
+		width: 100%;
+		height: 40%;
+		background-color: rgba(255, 255, 255, 0.9);
+		transition: top 0.6s;
+		position: fixed;
+		z-index: 1;
+	}
+	.searchh2 {
+		font-size: 60px;
+	  }
+
+    .intro h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .intro p {
+      font-size: 16px;
+      margin-bottom:10px;
+    }
+    
+    .intro .date {
+      font-size: 14px;
+      color: #999;
+      text-align: right;
+    }
+
+
+.result {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+
+}

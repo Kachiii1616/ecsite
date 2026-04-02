@@ -1,0 +1,189 @@
+
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    margin: 0 20px 0;
+    }
+    
+
+.searchinput {
+    width: 80%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    padding: 0 20px;
+    outline: none;
+    background-color: #e7e7e7;
+    }
+    
+    .searchbutton  {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    margin-left: 10px;
+    background-color: #333;
+    outline: none;
+    color: #333;
+    z-index:1;
+    }
+    
+    .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto 0px;
+    }
+    
+    .nav ul {
+    list-style: none;
+    }
+    
+    .nav ul li {
+    margin: 20px 0;
+    }
+    
+    .nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    }
+    
+    .headershikaku {
+    color:#f8f3e5;
+    }
+    
+    .searchimg {
+    display: inline-block; /* なくても大丈夫だけど、念の為 */
+    position: relative;    /* 基準値とする */
+    }
+    
+    .searchimg::before {
+    content: "";           /* 疑似要素に必須 */
+    width: 30px;           /* アイコンの横幅 */
+    height: 30px;          /* アイコンの高さ */
+    background: url(../images/header/search.png) no-repeat center / auto 100%; /* 背景にアイコン画像を配置 */
+    display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
+    position: absolute;    /* 相対位置に指定 */
+    top: 5px;              /* アイコンの位置。微調整してね */
+    left: 14px;            /* アイコンの位置。微調整してね */
+    filter : invert(100%)
+    brightness(75%);
+    z-index: -1;
+    }
+    
+    .searchimg input {
+    padding: px  px em; /* アイコンを設置するため左の余白を多めに指定*/
+    }
+    
+    /* 検索結果のスタイル */
+    .search-results {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    margin: 20px;
+    }
+    
+    .result {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    }
+    
+    .intro h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    padding:0;
+    }
+    
+    .intro p {
+    font-size: 10px;
+    margin:10px 0;
+    }
+    
+    .intro img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    }
+    
+    .intro .date {
+    font-size: 8px;
+    color: #999;
+    text-align: right;
+    margin:5px 0;
+    }
+
+#purchaseArea{
+  background-color: #ffffff;
+}
+
+#purchaseArea p{
+  margin: 0px 0px 0px 20px;
+}
+
+    /*--------------------------------------------------------------------------------------*/
+        
+    @media screen and (min-width: 920px) {
+    
+        /*--------------------------------------------------------------------------------------*/
+       
+        .sidebarp{
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            text-align: center;
+            margin: 160px auto 20px;
+        }
+            .sidebar-button img {
+                height: 90px;
+                width: 120px;
+                padding: 0px 20px 0px;
+                margin: 0px 60px 10px;
+                z-index: 92;
+                position: fixed;
+            }
+        
+            .sidebar {
+                position: absolute;
+                top: -100%;
+                left: 0;
+                width: 100%;
+                height: 40%;
+                background-color: rgba(255, 255, 255, 0.9);
+                transition: top 0.6s;
+                position: fixed;
+                z-index: 1;
+            }
+            .searchh2 {
+                font-size: 60px;
+              }
+        
+            .intro h3 {
+              font-size: 20px;
+              margin-bottom: 10px;
+            }
+            
+            .intro p {
+              font-size: 16px;
+              margin-bottom:10px;
+            }
+            
+            .intro .date {
+              font-size: 14px;
+              color: #999;
+              text-align: right;
+            }
+        
+        
+        .result {
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          padding: 20px;
+        }
+        
+        
+        }

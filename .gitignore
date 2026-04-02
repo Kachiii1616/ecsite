@@ -1,0 +1,18 @@
+
+images/song/*.mp4
+mydeer/images/datiljpg/*.psd
+
+# large files
+*.psd
+*.mp4
+
+# large files
+*.psd
+*.mp4
+
+*.mp4
+*.psd
+
+# ignore large files
+*.mp4
+*.psd

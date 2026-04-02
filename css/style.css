@@ -1,0 +1,1640 @@
+/*お決まりフレーズ*/
+@charset "urf-8";
+
+/*全体のフォント指定*/
+body {
+	font-family: 'Noto Serif JP', serif;
+	font-family: 'Playfair Display', serif;
+}
+
+/*画像調整：max-width:100%;：子要素が小さい場合はそのまま(使いやすい)*/
+img {
+	max-width: 100%;
+}
+
+/*---[menu]ハンバーガーメニュー＋画像---*/
+
+/* メニューを画面上部に固定表示しています */
+
+.gMenu {
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 100%;
+	z-index: 80;
+}
+/* メニューアイコンを画面右上に固定しています */
+
+.gMenu .menu-icon {
+	cursor: pointer;
+	position: absolute;
+	right: 5px;
+	top: 12px;
+	padding-top: 23px;
+	height: 12px;
+}
+/* メニューアイコン（三本線）の真ん中の線です */
+
+.gMenu .menu-icon .navicon {
+	background: #504f4f;
+	/* 色は自由に変更可能です */
+	display: block;
+	height: 2px;
+	/* 太さ */
+	width: 25px;
+	/* 長さ */
+	position: relative;
+	transition: background .4s ease-out;
+	/* 形が変わる時のアニメーション */
+}
+/* メニューアイコン（三本線）の上と下の線を疑似要素で追加 */
+
+.gMenu .menu-icon .navicon::before, .gMenu .menu-icon .navicon::after {
+	background: #504f4f;
+	/* 色は自由に変更可能です */
+	content: '';
+	display: block;
+	height: 100%;
+	position: absolute;
+	transition: all .4s ease-out;
+	/* 形が変わる時のアニメーション */
+	width: 100%;
+}
+.gMenu .menu-icon .navicon::before {
+	top: 10px;
+}
+/* 位置を上にずらしています */
+
+.gMenu .menu-icon .navicon::after {
+	top: -10px;
+}
+/* 位置を下にずらしています */
+
+/* 表示されるメニューです */
+
+.gMenu .menu {
+	background-color: rgba(255, 255, 255, 0.9);
+	overflow: hidden;
+	max-height: 0;
+	/* ★最初は高さを0にして非表示状態に */
+	transition: max-height .6s;
+	/* 表示されるときのアニメーション */
+	text-align: center;
+}
+/* メニュー部分のデザインです */
+/* メニュー:上の余白 */
+.gMenu .menu li:first-of-type {
+	padding-top: 70px;
+}
+.gMenu .menu li a {
+	display: block;
+	padding: 24px 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.gMenu .menu li a:hover {
+	background-color: #f4f4f4;
+}
+/* チェックボックスは常に非表示です */
+
+.gMenu .menu-btn {
+	display: none;
+}
+/* ▼▼▼以下はチェックボックスがONの時の状態です▼▼▼ */
+
+.gMenu .menu-btn:checked~.menu {
+	max-height: 600px;  /*338px*/
+	/* ★チェックボックスがオンの時高さを338pxにして表示させます */
+	transition: max-height .7s;
+}
+/* メニューボタンの中央の線を非表示に */
+
+.gMenu .menu-btn:checked~.menu-icon .navicon {
+	background: transparent;
+}
+/* メニューボタンの上下の線を45度傾けて✕印を作ります */
+
+.gMenu .menu-btn:checked~.menu-icon .navicon::before {
+	transform: rotate(-45deg);
+	top: 0;
+}
+.gMenu .menu-btn:checked~.menu-icon .n.double_lineavicon::after {
+	transform: rotate(45deg);
+	top: 0;
+}
+/*---[menu]ハンバーガーメニュー＋画像---*/
+
+/*---HOMEボタン---*/
+
+.html {
+	scroll-behavior: smooth;
+}
+.pagetop {
+	height: 35px;
+	width: 60px;
+	position: fixed;
+	left: 15px;
+	bottom: -5px;
+	background: #f8f3e5;
+	border-radius: 80px 80px 0px 0px;
+	/*border: solid 2px #000;*/
+	/*border-radius: 50%;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	font-size: 12px;
+}
+/*
+ホームボタン　矢印ver
+.pagetop__arrow {
+  height: 10px;
+  width: 10px;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  transform: translateY(20%) rotate(-45deg);
+}
+*/
+
+/*ヘッダー　背景：色指定*/
+header {
+	background-color: #f8f3e5;
+}
+/*ヘッダーのayakalABOを大きくする*/
+.gnavayakaLABO {
+	font-size: 35px;
+	/*font-weight: bold;*/
+}
+.srcimg img {
+	height: 40px;
+	width: 40px;
+	padding: 2px 0px 0px;
+}
+.serchpage {
+	margin: 20px 20px;
+	display: flex;
+	align-items: center;
+	-moz-appearance: menulist;
+	-webkit-appearance: munulist;
+	appearance: menulist;
+}
+.iconimg img {
+	height: 35px;
+	width: auto;
+	padding: 2px 0px 0px;
+}
+/*グローバルnav固定：要素の配置(ポジションプロパティ)：position: fixed;動かない*/
+
+.gnav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #f8f3e5;
+	z-index: 1;
+}
+/*グローバルnavを広げる：フレックス：①親要素：justify-content：両端あり・spase-around*/
+
+.gnavul {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	margin: 0px auto;
+	padding: 10px 0px;
+}
+/*グランドメニュー２重線*/
+
+.gnavul {
+	border-top: .5px double #000000;
+	border-bottom: .5px double #000000;
+	padding: 3px 0px 3px;
+	margin: 5px 0px;
+}
+/*グランドメニュー２重線*/
+
+/*
+.gnav ul {
+  border-top:  3px double  #000000;
+  padding: 0px 0px 0px;
+  margin: 10px 0px 10px;
+}
+.gnav ul {
+  border-bottom: 3px double #000000;
+  padding: 0px 0px 0px;
+  margin: 0px 0px 10px;
+}
+*/
+
+/*
+.gnav ul {
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+} 
+*/
+
+/*グランドメニュー２重線
+*/
+
+/*
+.gnavul {
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding: 5px 0px 5px;
+  margin: 2px 0px
+}
+.gnavul {
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding: 4px 0px 4px;
+}
+*/
+
+/*
+.localnav {
+  position: fixed;
+  top: 57px ;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(180deg, none 0%,none 70%,#f8f3e5 70%,#f8f3e5 100%);
+}
+*/
+
+h2 {
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	padding: 77px 0px 0px;
+}
+h3 {
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	padding: 0px 0px 0px;
+}
+h4 {
+	font-size: 25px;
+	display: flex;
+	justify-content: left;
+	padding: 10px 0px 5px;
+}
+/*icon大きくする*/
+
+.toppageimg {
+	display: block;
+	padding: 90px 20px 0px;
+	margin: 0px 0px 0px;
+	object-fit: cover;
+}
+/*タイトル大きく*/
+
+header h1 {
+	font-size: 50px;
+	padding: 2px 20px 0px;
+	line-height: 1;
+}
+/*タイトル下文章*/
+
+.h1p {
+	padding: 5px 25px 0px;
+	font-size: 10px;
+}
+/*ローカルナビ 位置：センターへ*/
+
+.localnavul {
+	display: flex;
+	justify-content: center;
+}
+/*ローカルナビ 上下幅/文章間：広く*/
+
+.localnavul li {
+	margin: 14px 5px;
+}
+/*ローカルナビ マウスオーバー*/
+
+.localnavul li a:hover {
+	text-decoration: underline solid;
+}
+/*scroll*/
+
+.scroll {
+	font-size: 25px;
+	padding: 26px 0px 15px;
+	display: flex;
+	justify-content: center;
+	text-decoration: overline solid #000000 1px;
+}
+/*コンセプト 背景：バイカラー*/
+
+.concept {
+	background-image: linear-gradient(180deg, #2c2f29 0%, #2c2f29 70%, #f8f3e5 70%, #f8f3e5 100%);
+}
+/*コンセプト タイトル１*/
+
+.concepth2 {
+	color: #f8f3e5;
+	padding: 90px 0px 0px;
+}
+/*コンセプト 文章１*/
+
+.concept1 {
+	font-size: 28px;
+	color: #f8f3e5;
+	text-align: center;
+	margin: 70px 0px 0px;
+	line-height: 1.5;
+}
+/*コンセプト 文章２*/
+
+.concept2 {
+	font-size: 18px;
+	color: #f8f3e5;
+	text-align: center;
+	padding: 0px 0px 70px;
+	line-height: 1.5;
+}
+/*コンセプト 写真：位置*/
+
+.conceptimg {
+	text-align: center;
+}
+/*コンセプト 写真：余白*/
+
+.conceptimg img {
+	padding: 0px 100px 30px;
+}
+/*コンセプト ボタン*/
+
+.conceptbtn {
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	background-color: #f8f3e5;
+	border: 1px solid #000000;
+	margin: 12px auto 0px;
+	width: 200px;
+}
+.conceptbtnm {
+	line-height: 50px;
+}
+/*--------------------------------------------*/
+
+/*ミュージック 背景*/
+
+.musicc {
+	background-color: #f8f3e5;
+}
+/*ミュージック 画像*/
+
+.music li img {
+	max-width: 100%;
+	height: 172px;
+	padding: 2px 10px;
+	object-fit: contain;
+}
+.music li img:hover {
+	filter: brightness(102%);
+	filter: drop-shadow(10px 10px #ccc);
+}
+.onlyPC {
+	display: none;
+}
+/*ミュージック h2*/
+
+.musicc h2 {
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	padding: 74px 0px 0px;
+	line-height: 1;
+}
+/*ミュージック h3*/
+
+.music h3 {
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	padding: 0px 0px 2px;
+	line-height: 1;
+}
+/*ミュージック ボタン*/
+
+.musicbtn {
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	background-color: #f8f3e5;
+	border: 1px solid #000000;
+	margin: 5px auto 0px;
+	width: 200px;
+	/*filter: drop-shadow(10px 10px #ccc); */
+}
+/*--------------------------------------------*/
+
+/*写真 背景：バイカラー*/
+
+.photo1 h4 {
+	padding: 10px 0px 0px;
+	font-family: 'Noto Serif JP', serif;
+}
+/*写真 タイトル*/
+
+.photo1 h2 {
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	padding: 90px 0px 2px;
+	line-height: 1;
+}
+/*写真 背景：バイカラー*/
+
+.photo1 {
+	background-image: linear-gradient(180deg, #f8f3e5 0%, #f8f3e5 65%, #ffffff 65%, #ffffff 100%);
+}
+/*写真 背景：単色*/
+
+.photo2 {
+	background-color: #2c2f29;
+}
+/*写真 画像：中央*/
+
+.photob {
+	text-align: center;
+}
+/*写真 画像：大きさ*/
+
+.photob img {
+	height: 250px;
+	width: 100%;
+	object-fit: contain;
+}
+.photom {
+	font-size: 5px;
+}
+.photopc {
+	display: none;
+}
+/*--------------------------------------------*/
+
+/*写真 Tripタイトル色*/
+.photoh4t {
+	color: #f8f3e5;
+	padding: 10px 0px 20px;
+	font-family: 'Noto Serif JP', serif;
+}
+/*写真 Trip画像位置*/
+.photot {
+	display: flex;
+	justify-content: space-evenly;
+}
+/*写真 Trip画像大きさ*/
+.photot img {
+	height: 100px;
+	width: 100%;
+	object-fit: contain;
+	align-self: flex-start;
+}
+
+/*写真 ボタン*/
+.photobtn {
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	background-color: #2c2f29;
+	border: 1px solid #f8f3e5;
+	margin: 25px auto 0px;
+	width: 200px;
+	/*filter: drop-shadow(10px 10px #ccc); */
+}
+/*写真 ボタン：色*/
+.photobtn a {
+	color: #f8f3e5;
+}
+.photobtnm {
+	line-height: 30px;
+}
+/*--------------------------------------------*/
+
+.about {
+	background-color: #f8f3e5;
+}
+/*about タイトル*/
+
+.about h2 {
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	padding: 75px 0px 5px;
+}
+/*about 文全体：中央揃え*/
+
+.about {
+	font-size: 12.5px;
+	text-align: center;
+}
+/*about youtube文*/
+
+.youtube {
+	padding: 2px;
+	font-family: 'Noto Serif JP', serif;
+}
+/*about hobby文*/
+
+.hobby {
+	padding: 2px;
+	font-family: 'Noto Serif JP', serif;
+}
+/*about histry文*/
+
+.histry ul li p {
+	display: inline-block;
+	text-align: left;
+	font-family: 'Noto Serif JP', serif;
+}
+/*about img*/
+
+.about img {
+	text-align: center;
+}
+/*about img*/
+
+.about img {
+	height: 180px;
+	width: 100%;
+	object-fit: contain;
+}
+/*about ボタン*/
+
+.aboutbtn {
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	background-color: #f8f3e5;
+	border: 1px solid #000000;
+	margin: 15px auto 0px;
+	width: 200px;
+	/*filter: drop-shadow(10px 10px #ccc); */
+}
+.aboutbtnm {
+	line-height: 35px;
+}
+/*--------------------------------------------*/
+.mydeergiftp {
+	font-size: 20px;
+	font-weight:bold;
+	font-family: 'Noto Sans JP', sans-serif;
+  }
+
+.mydeerh3pc {
+	display: none;
+}
+/*mydeer タイトル*/
+
+.mydeerh2 {
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	padding: 20px 0px 0px;
+}
+/*mydeer サブタイトル*/
+
+.mydeer h3 {
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	padding: 0px 0px 20px;
+	text-decoration: underline solid #e0c2ae 5px;
+}
+/*上部空白*/
+
+.mydeertop {
+	line-height: 80px;
+}
+/*上部空白 色*/
+
+#mydeerArea {
+	background-color: #2c2f29;
+	z-index: 1;
+}
+/*背景*/
+
+.mydeer {
+	/*background-image: linear-gradient(180deg,#2c2f29 0%,#2c2f29 10%,#f8f3e5 10%,#f8f3e5 100%);*/
+	background-color: #f8f3e5;
+	border-radius: 80px 80px 0px 0px;
+}
+/*mydeer パソコン大きさ*/
+
+#mydeerArea img {
+	width: 100%;
+	object-fit: contain;
+}
+/*mydeer パソコン余白・leaf3-1*/
+
+.maydeerimg {
+	padding: 0px 0px 0px;
+	position: relative;
+}
+/*.mydeer leaf3-2
+.maydeerimg::before {
+  content:url(../images/leaf/leaf.mobile.png);
+  position: absolute;
+  left: 0px;
+  bottom: -20px;
+}
+*/
+
+/*mydeer leaf3-2
+.maydeerimg::before {
+  content:url(../images/leaf/deco.left.png);
+  position: absolute;
+  left: 20px;
+  bottom: -20px;
+}*/
+
+/*mydeer lea3-3
+.maydeerimg::after {
+  content:url(../images/leaf/deco_right.png);
+  position: absolute;
+  left: 50px;
+  bottom: 20px;
+}
+*/
+
+/*mydeer 文章：フォント種類*/
+
+.mydeerol {
+	font-family: 'Noto Sans JP', sans-serif;
+}
+.mydeerp {
+	font-family: 'Noto Sans JP', sans-serif;
+}
+.mydeer h3 {
+	font-family: 'Noto Sans JP', sans-serif;
+}
+/*mydeer 文章：位置　親要素(文章全体)を中央揃えにして子要素(文書中身)は左揃えに*/
+
+.mydeer {
+	text-align: center;
+}
+.mydeerol ol li p {
+	display: inline-block;
+	text-align: left;
+}
+.about1 {
+	padding: 5px;
+}
+.about2 {
+	padding: 5px;
+}
+.about3 {
+	padding: 5px;
+}
+.mydeerp {
+	padding: 5px;
+	margin: 15px auto 15px;
+}
+/*mydeer 鹿：block位置　親要素relative 子要素absolute*/
+
+.mydeer {
+	position: relative;
+}
+.deer {
+	width: 75px;
+	height: auto;
+	position: absolute;
+	left: 280px;
+	bottom: 30px;
+}
+/*mydeer ボタン*/
+
+.mydeerbtn {
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	background-color: #f8f3e5;
+	border: 1px solid #000000;
+	margin: 12px auto 0px;
+	width: 200px;
+}
+.mydeerbtnm {
+	line-height: 50px;
+}
+/*--------------------------------------------*/
+
+/*contact ボタン*/
+.contactbtn {
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: #f8f3e5;
+	margin: 10px auto 0px;
+	width: 220px;
+	padding: 10px 0;
+	border-radius: 40px;
+}
+.contactbtnm {
+	line-height: 115px;
+}
+/*contact タイトル*/
+
+.contact h2 {
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	padding: 175px 0px 0px;
+}
+/*contact サブタイトル*/
+
+.contact h3 {
+	font-size: 30px;
+	padding: 0px 0px 15px;
+}
+.follow {
+	text-align: center;
+}
+.socialmedia img {
+	height: 80px;
+	width: auto;
+}
+.socialmedia {
+	display: flex;
+	justify-content: space-evenly;
+	padding: 15px 0px 20px;
+}
+/*--------------------------------------------*/
+
+/*footer　背景*/
+
+footer {
+	background-color: #f8f3e5;
+	text-align: center;
+	font-size: 10px;
+}
+/*footer 幅*/
+
+.footertop {
+	line-height: 40px;
+}
+/*footer　傍線*/
+
+.example3 {
+	padding: 10px;
+	background: #f8f3e5;
+	position: relative;
+}
+/*
+.example3::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0;
+    border-bottom: 2px double #333;
+    position: absolute;
+    bottom: 15px;
+    left: 0px;
+}
+.footercopy {
+font-family: 'Noto Serif JP', serif;
+}
+*/
+
+/*
+.example3::before{
+  content: "";
+  display: block;
+  width: 350px; 
+  height: 0;
+  border-bottom: 1px solid #333;*
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+}
+*/
+
+/*
+.example3{
+  padding: 20px;
+  background: #dbeff5;
+  position: relative;
+}
+</style>
+<div class="example3">テキスト</div>
+*/
+
+/*---
+#f8f3e5
+#2c2f29
+---*/
+
+/*---
+.mydeertop {
+  margin: 15px 0px;
+}
+.mydeerbottom{  
+  margin: 15px 0px;
+}
+
+---*/
+
+/*---
+.mydeerp::before {
+  content:url(../images/deer/deer.png);
+  position: relative;
+  left: 20px;
+  bottom: -20px;
+}
+---*/
+
+/*--------------------------------------------*/
+
+.sidebarp {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    text-align: center;
+    margin: 120px auto 20px;
+  }
+  
+  .sidebar h3 {
+    font-size: 25px;
+    margin: 20px auto 0px;
+  }
+  
+  .searchwrap {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  .sidebar-container {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;      
+  }
+  
+  .sidebar-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+    z-index: 70;
+    position: fixed;
+  }
+  
+  #sidebar-toggle:checked + .sidebar-button .sidebar-icon {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    
+    #sidebar-toggle:checked + .sidebar-button .sidebar-icon::before {
+      transform: rotate(-90deg) translateY(10px);
+    }
+    
+    #sidebar-toggle:checked + .sidebar-button .sidebar-icon::after {
+      transform: rotate(-90deg) translateY(-10px);
+    }
+    
+    .sidebar {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 40%;
+      background-color: rgba(255, 255, 255, 0.9);
+      transition: top 0.6s;
+    position: fixed;
+    z-index: 1;
+  }
+  
+  #sidebar-toggle:checked ~ .sidebar {
+      top: 0;
+    }
+    
+  #sbutton:checked ~ .sidebar {
+      top: 0;
+    }
+  
+  .search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
+      margin: 0 20px 0;
+  }
+  
+  .searchinput {
+      width: 80%;
+      height: 40px;
+      border: none;
+      border-radius: 20px;
+      padding: 0 20px;
+      outline: none;
+      background-color: #e7e7e7;
+  }
+  
+  .searchbutton  {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      margin-left: 10px;
+      background-color: #333;
+      outline: none;
+      color: #333;
+      z-index:1;
+    }
+  
+    .nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto 0px;
+    }
+  
+    .nav ul {
+      list-style: none;
+    }
+    
+    .nav ul li {
+      margin: 20px 0;
+    }
+    
+    .nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 20px;
+    }
+  
+    .headershikaku {
+      color:#f8f3e5;
+    }
+  
+    .searchimg {
+    display: inline-block; /* なくても大丈夫だけど、念の為 */
+    position: relative;    /* 基準値とする */
+    }
+    
+    .searchimg::before {
+    content: "";           /* 疑似要素に必須 */
+    width: 30px;           /* アイコンの横幅 */
+    height: 30px;          /* アイコンの高さ */
+    background: url(../images/header/search.png) no-repeat center / auto 100%; /* 背景にアイコン画像を配置 */
+    display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
+    position: absolute;    /* 相対位置に指定 */
+    top: 5px;              /* アイコンの位置。微調整してね */
+    left: 14px;            /* アイコンの位置。微調整してね */
+    filter : invert(100%)
+      brightness(75%);
+    z-index: -1;
+    }
+    
+    .searchimg input {
+    padding: px  px em; /* アイコンを設置するため左の余白を多めに指定*/
+    }
+
+/* 検索結果のスタイル */
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 20px;
+}
+
+.result {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.intro h3 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  padding:0;
+}
+
+.intro p {
+  font-size: 10px;
+  margin:10px 0;
+}
+
+.intro img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.intro .date {
+  font-size: 8px;
+  color: #999;
+  text-align: right;
+  margin:5px 0;
+}
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+  /* コンテナの設定 */
+  .container {
+    margin:100px auto 40px;
+    width: 90%;
+    background-color: #ffffff;
+    padding:30px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.16);
+  }
+  
+  /* タイトルの設定 */
+.container h1 {
+	font-size: 40px;
+    color: #333;
+    margin: 0px auto 0px;
+	text-align: left;
+  }
+  
+  /* サブタイトルの設定 */
+.container h2 {
+	margin: 0px 0px 30px 0px;
+    text-align: left;
+	font-size: 20px;
+    color: #666;
+	padding-top: 0px;
+	display: flex;
+	justify-content: left;
+  }
+  
+  /* フォームの設定 */
+  .container form {
+    width: 85%;
+    margin: 0 auto;
+  }
+  
+  /* フォームグループの設定 */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* ラベルの設定 */
+  .container label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  /* 入力欄の設定 */
+  .container input {
+    display: block;
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* 入力欄の下線の設定 */
+  .container  input[type="text"],
+  .container  input[type="email"],
+  .container  input[type="password"] {
+    border-bottom: 1px solid #333;
+  }
+  
+  /* 送信ボタンの設定 */
+  .container  input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    margin: 30px 0px 0px 0px;
+    padding:0px 20px 0px 20px ;
+    width: 40%;
+    text-align: center;
+  }
+  
+  /* エラーの設定 */
+  .errors {
+    color: #f00;
+  }
+  
+  /* メッセージの設定 */
+  .message {
+    color: #0f0;
+  }
+
+
+/*--------------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 920px) {
+
+/*--------------------------------------------------------------------------------------*/
+
+
+/*ヘッダー*/
+	/* メニューアイコンの位置 */
+	.gMenu {
+		right: 0px;
+		top: 0px;
+	}
+	/* メニューアイコンの範囲 */
+	.gMenu .menu-icon {
+		padding: 55px 80px 0px 0px;
+		height: 38px;
+	}
+	/* メニューアイコン（三本線）の真ん中の線です */
+	.gMenu .menu-icon .navicon {
+		width: 50px;
+		/* 長さ */
+	}
+
+/* メニュー:上の余白 */
+.gMenu .menu li:first-of-type {
+	padding-top: 130px;
+}
+
+	/*サーチ大きさ*/
+	.srcimg img {
+		height: 90px;
+		width: 120px;
+		padding: 5px 20px 0px;
+		margin: 10px 0px 0px;
+	}
+	/*アイコン大きさ*/
+	.iconimg img {
+		height: 85px;
+		width: auto;
+		padding: 10px 0px 0px;
+		margin: 10px 0px 0px;
+	}
+	/*ヘッダーのayakalABOを大きくする*/
+	.gnavayakaLABO {
+		font-size: 70px;
+		/*font-weight: bold;*/
+		padding: 5px 0px 5px;
+	}
+	/*サーチ大きさ*/
+	.srcimg {
+		position: absolute;
+		top: 5px;
+		left: 80px;
+		height: 90px;
+		width: 120px;
+	}
+	/*アイコン大きさ*/
+	.iconimg {
+		position: absolute;
+		bottom: 40px;
+		right: 150px;
+		height: 80px;
+		width: auto;
+	}
+	.gnavayakaLABO {
+		top: 100px;
+		text-align: center;
+		font-size: 70px;
+	}
+	/*--------------------------------------------------------------------------------------*/
+	/*HOMEボタン*/
+	.pagetop {
+		height: 60px;
+		width: 120px;
+		font-size: 25px;
+		position: fixed;
+		left: 60px;
+		bottom: -7px;
+		background: #f8f3e5;
+		border-radius: 80px 80px 0px 0px;
+		/*border: solid 2px #000;*/
+		/*border-radius: 50%;*/
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 2;
+	}
+	/*--------------------------------------------------------------------------------------*/
+	/*トップページ　写真*/
+	.toppageimg img {
+		width: 38vw;
+		height: 100%;
+		margin: 82px 0px 40px 100px;
+		padding: 0px 0px 25px 0px;
+		display: flex;
+	}
+	/*トップページ　題名*/
+	header h1 {
+		font-size: 7vw;
+		padding: 0px 0px 0px;
+		margin: 70px 35px 20px 25px;
+	}
+	/*トップページ　タイトル下文章*/
+	.h1p {
+		font-size: 1.5vw;
+		padding: 0px 0px 0px;
+		margin: 5px 35px 40px 33px;
+	}
+	/*トップページ　ローカルナビ位置*/
+	.localnavul {
+		font-size: 2vw;
+		display: flex;
+		justify-content: left;
+		margin: 0px 0px 0px 0px;
+	}
+	/*トップページ　scroll*/
+	.scroll {
+		font-size: 2.5vw;
+		padding: 0px 0px 20px;
+		position: absolute;
+		right: 25vw;
+		bottom: 50px;
+		margin: 0px 0px -10px 100px;
+	}
+	/*トップページ　２分割構成*/
+	/*①トップページ　２分割構成　親要素*/
+	.headerimgp {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		position: relative;
+	}
+	/*②トップページ　２分割構成 子要素：写真*/
+	.toppageimg {
+		display: block;
+		width: 48%;
+		height: auto;
+		padding: 90px 0px 0px;
+		margin: 0px 0px 0px;
+	}
+	/*③トップページ　２分割構成 子要素：文章*/
+	.headerp {
+		width: 48%;
+	}
+	/*--------------------------------------------------------------------------------------*/
+	/*コンセプト 背景：バイカラー*/
+	.concept {
+		background-image: linear-gradient(180deg, #2c2f29 0%, #2c2f29 73%, #f8f3e5 73%, #f8f3e5 100%);
+	}
+	.concepth2 {
+		font-size: 60px;
+		display: flex;
+		justify-content: center;
+		padding: 140px 0px 0px;
+	}
+	/*コンセプト 文章１*/
+	.concept1 {
+		font-size: 70px;
+		margin: 20px 0px 0px;
+		line-height: 1.5;
+	}
+	/*コンセプト 文章２*/
+	.concept2 {
+		font-size: 32px;
+		padding: 0px 0px 50px;
+		line-height: 1.5;
+	}
+	/*コンセプト 写真：余白*/
+	.conceptimg img {
+		height: 380px;
+		width: auto;
+		padding: 0px 0px 30px;
+	}
+	/*コンセプト ボタン*/
+	.conceptbtn {
+		font-size: 30px;
+		background-color: #f8f3e5;
+		border: 1px solid #000000;
+		margin: 12px auto 0px;
+		width: 300px;
+	}
+	/*コンセプト　ボタン下*/
+	.conceptbtnm {
+		line-height: 60px;
+	}
+	/*--------------------------------------------------------------------------------------*/
+	/*ミュージック h2*/
+	.musicc h2 {
+		font-size: 60px;
+		padding: 140px 0px 20px;
+		line-height: 1;
+	}
+	/*ミュージック 画像横並び*/
+	.music {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		padding: 0px 20%;
+	}
+	.music li {
+		flex-basis: 50%;
+		text-align: center;
+	}
+	/*ミュージック 画像*/
+	.music li img {
+		width: auto;
+		height: 300px;
+		padding: 0px 0px;
+		margin-bottom: 28px;
+		object-fit: cover;
+	}
+	.onlyPC {
+		display: block;
+	}
+	/*コンセプト ボタン*/
+	.musicbtn {
+		font-size: 30px;
+		background-color: #f8f3e5;
+		border: 1px solid #000000;
+		margin: 6px auto 0px;
+		width: 300px;
+	}
+	/*--------------------------------------------------------------------------------------*/
+	/*写真 サブタイトルTrip*/
+	.photoh4t {
+		font-size: 40px;
+		display: flex;
+		justify-content: left;
+		padding: 10px 20px 0px 30px;
+		padding: 20px 20px 20px;
+		position: absolute;
+	}
+	.photot img:hover {
+		filter: brightness(105%);
+	}
+	/*写真 Trip画像大きさ*/
+	.photot img {
+		height: 260px;
+		width: 100%;
+		padding: 30px 0px 5px;
+	}
+	/*写真 タイトル*/
+	.photo1 h2 {
+		font-size: 60px;
+		display: flex;
+		justify-content: center;
+		padding: 150px 0px 20px;
+		line-height: 1;
+		position: relative;
+	}
+	/*写真 サブタイトル美しい人*/
+	.photoh4b {
+		font-size: 40px;
+		display: flex;
+		justify-content: left;
+		padding: 10px 20px 0px 30px;
+		position: absolute;
+	}
+	/*写真 写真：美しい人 中央よせ*/
+	.photopc {
+		display: block;
+		margin: 0px auto 5px;
+		text-align: center;
+	}
+	/*写真 写真：美しい人 大きさ*/
+	.photopc img {
+		width: 700px;
+		height: auto;
+		margin: 0 20%;
+		object-fit: contain;
+	}
+	/*写真 写真：美しい人 モバイル消す*/
+	.photob {
+		display: none;
+	}
+	/*写真 ボタン*/
+	.photobtn {
+		font-size: 30px;
+		background-color: #2c2f29;
+		border: 1px solid #f8f3e5;
+		margin: 10px auto 0px;
+		width: 300px;
+	}
+	/*--------------------------------------------------------------------------------------*/
+	.about {
+		background-color: #ffffff;
+	}
+	/*about タイトル*/
+	.about h2 {
+		font-size: 60px;
+		color: #f8f3e5;
+		padding: 150px 0px 30px;
+		line-height: 1;
+		background: #2c2f29;
+	}
+	/*about 文全体：中央揃え*/
+	.about {
+		font-size: 25px;
+	}
+	/*about 写真*/
+	.about img {
+		height: 400px;
+		width: 100%;
+	}
+	/*about 全体２分割*/
+	.aboutwrap {
+		display: flex;
+		justify-content: space-evenly;
+		flex-wrap: wrap;
+		align-items: center;
+		flex-direction: row-reverse;
+		margin: 30px 0 0 0;
+	}
+	/*about ボタン*/
+	.aboutbtn {
+		font-size: 30px;
+		margin: 20px auto 0px;
+		width: 300px;
+		background-color: #ffffff;
+	}
+	/*about ボタン下*/
+	.aboutbtnm {
+		line-height: 70px;
+	}
+	/*--------------------------------------------------------------------------------------*/
+	/*背景*/
+	.mydeer {
+		background-color: #f8f3e5;
+		border-radius: 300px 300px 0px 0px;
+	}
+	/*上部空白*/
+	.mydeertop {
+		line-height: 140px;
+	}
+	/*上部空白 色*/
+	#mydeerArea {
+		background-color: #2c2f29;
+		z-index: 1;
+	}
+	/*mydeer タイトル*/
+	.mydeerh2 {
+		font-size: 60px;
+		padding: 50px 0px 50px;
+	}
+	/*mydeer サブタイトルモバイル消去*/
+	.mydeerh3m {
+		display: none;
+	}
+	/*mydeer サブタイトル位置*/
+	.mydeerh3pc {
+		display: block;
+		padding: 5px 0px 5px;
+		text-decoration: underline solid #e0c2ae 5px;
+	}
+	/*mydeer サブタイトル*/
+	.mydeerh3pc h3 {
+		font-size: 47px;
+	}
+	/*mydeer 文字の大きさ*/
+	.mydeer {
+		font-size: 35px;
+	}
+	/*mydeer パソコン大きさ*/
+	#mydeerArea img {
+		height: 500px;
+		width: 100%;
+		object-fit: contain;
+	}
+	/*mydeer 鹿：block位置　親要素relative 子要素absolute*/
+	.mydeerbox {
+		position: relative;
+	}
+	/*mydeer 鹿大きさ*/
+	.deer {
+		width: 170px;
+		height: auto;
+		position: absolute;
+		left: 350px;
+		bottom: -170px;
+	}
+	/*mydeer 2分割*/
+	.mydeerwrap {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	.maydeerimg img {
+		display: block;
+	}
+	.mydeerp {
+		padding: 5px;
+		margin: 10px auto 10px;
+	}
+	/*mydeer ボタン*/
+	.mydeerbtn {
+		font-size: 30px;
+		margin: 20px auto 0px;
+		width: 300px;
+	}
+	.mydeerbtnm {
+		line-height: 100px;
+	}
+
+	.mydeergiftp {
+		font-size: 40px;
+		font-weight:bold;
+		font-family: 'Noto Sans JP', sans-serif;
+	  }
+	/*--------------------------------------------------------------------------------------*/
+	/*contact タイトル*/
+	.contact h2 {
+		font-size: 60px;
+		padding: 240px 0px 0px;
+	}
+	/*contact サブタイトル*/
+	.contact h3 {
+		font-size: 50px;
+		padding: 0px 0px 20px;
+	}
+	/*contact ボタン*/
+	.contactbtn {
+		font-size: 33px;
+		font-weight: bold;
+		margin: 10px auto 0px;
+		width: 300px;
+		padding: 10px 0;
+		border-radius: 40px;
+	}
+	.follow {
+		font-size: 38px;
+	}
+	.socialmedia img {
+		height: 150px;
+		width: auto;
+		margin: 0 50px;
+	}
+	.socialmedia {
+		display: flex;
+		justify-content: center;
+		padding: 15px 0px 20px;
+	}
+
+
+	/*--------------------------------------------------------------------------------------*/
+	/*--------------------------------------------------------------------------------------*/
+
+	.sidebarp{
+		font-family: 'Playfair Display', serif;
+		font-size: 30px;
+		text-align: center;
+		margin: 160px auto 20px;
+	}
+		.sidebar-button img {
+			height: 90px;
+			width: 120px;
+			padding: 0px 20px 0px;
+			margin: 0px 60px 10px;
+			z-index: 92;
+			position: fixed;
+		}
+	
+		.sidebar {
+			position: absolute;
+			top: -100%;
+			left: 0;
+			width: 100%;
+			height: 40%;
+			background-color: rgba(255, 255, 255, 0.9);
+			transition: top 0.6s;
+			position: fixed;
+			z-index: 1;
+		}
+		.searchh2 {
+			font-size: 60px;
+		  }
+	
+		.intro h3 {
+		  font-size: 20px;
+		  margin-bottom: 10px;
+		}
+		
+		.intro p {
+		  font-size: 16px;
+		  margin-bottom:10px;
+		}
+		
+		.intro .date {
+		  font-size: 14px;
+		  color: #999;
+		  text-align: right;
+		}
+	
+	
+	.result {
+	  border: 1px solid #ccc;
+	  border-radius: 5px;
+	  padding: 20px;
+	}
+
+/*--------------------------------------------------------------------------------------*/
+  /* コンテナの設定 */
+.container {
+    margin:170px auto 0px;
+	width: 400px;
+}
+
+
+
+  /* フォームの設定 */
+  .container form {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+
+
+
+	/*--------------------------------------------------------------------------------------*/
+}

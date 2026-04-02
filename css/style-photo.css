@@ -1,0 +1,423 @@
+/*お決まりフレーズ*/
+
+@charset "urf-8";
+/*全体のフォント指定*/
+
+body {
+	font-family: 'Noto Serif JP', serif;
+	font-family: 'Playfair Display', serif;
+}
+/*画像調整：max-width:100%;：子要素が小さい場合はそのまま(使いやすい)*/
+
+img {
+	max-width: 100%;
+}
+/*---[menu]ハンバーガーメニュー＋画像---*/
+
+/* メニューを画面上部に固定表示しています */
+
+.gMenu {
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 100%;
+	z-index: 99;
+}
+/* メニューアイコンを画面右上に固定しています */
+
+.gMenu .menu-icon {
+	cursor: pointer;
+	position: absolute;
+	right: 5px;
+	top: 12px;
+	padding-top: 23px;
+	height: 12px;
+}
+/* メニューアイコン（三本線）の真ん中の線です */
+
+.gMenu .menu-icon .navicon {
+	background: #504f4f;
+	/* 色は自由に変更可能です */
+	display: block;
+	height: 2px;
+	/* 太さ */
+	width: 25px;
+	/* 長さ */
+	position: relative;
+	transition: background .4s ease-out;
+	/* 形が変わる時のアニメーション */
+}
+/* メニューアイコン（三本線）の上と下の線を疑似要素で追加 */
+
+.gMenu .menu-icon .navicon::before, .gMenu .menu-icon .navicon::after {
+	background: #504f4f;
+	/* 色は自由に変更可能です */
+	content: '';
+	display: block;
+	height: 100%;
+	position: absolute;
+	transition: all .4s ease-out;
+	/* 形が変わる時のアニメーション */
+	width: 100%;
+}
+.gMenu .menu-icon .navicon::before {
+	top: 10px;
+}
+/* 位置を上にずらしています */
+
+.gMenu .menu-icon .navicon::after {
+	top: -10px;
+}
+/* 位置を下にずらしています */
+
+/* 表示されるメニューです */
+
+.gMenu .menu {
+	background-color: rgba(255, 255, 255, 0.9);
+	overflow: hidden;
+	max-height: 0;
+	/* ★最初は高さを0にして非表示状態に */
+	transition: max-height .6s;
+	/* 表示されるときのアニメーション */
+	text-align: center;
+}
+/* メニュー部分のデザインです */
+
+.gMenu .menu li:first-of-type {
+	padding-top: 50px;
+}
+.gMenu .menu li a {
+	display: block;
+	padding: 24px 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.gMenu .menu li a:hover {
+	background-color: #f4f4f4;
+}
+/* チェックボックスは常に非表示です */
+
+.gMenu .menu-btn {
+	display: none;
+}
+/* ▼▼▼以下はチェックボックスがONの時の状態です▼▼▼ */
+
+.gMenu .menu-btn:checked~.menu {
+	max-height: 338px;
+	/* ★チェックボックスがオンの時高さを338pxにして表示させます */
+	transition: max-height .6s;
+}
+/* メニューボタンの中央の線を非表示に */
+
+.gMenu .menu-btn:checked~.menu-icon .navicon {
+	background: transparent;
+}
+/* メニューボタンの上下の線を45度傾けて✕印を作ります */
+
+.gMenu .menu-btn:checked~.menu-icon .navicon::before {
+	transform: rotate(-45deg);
+	top: 0;
+}
+.gMenu .menu-btn:checked~.menu-icon .n.double_lineavicon::after {
+	transform: rotate(45deg);
+	top: 0;
+}
+/*---[menu]ハンバーガーメニュー＋画像---*/
+
+/*---HOMEボタン---*/
+
+.html {
+	scroll-behavior: smooth;
+}
+.pagetop {
+	height: 35px;
+	width: 60px;
+	position: fixed;
+	left: 15px;
+	bottom: -5px;
+	background: #f8f3e5;
+	border-radius: 80px 80px 0px 0px;
+	/*border: solid 2px #000;*/
+	/*border-radius: 50%;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	font-size: 12px;
+}
+/*ヘッダー　背景：色指定*/
+
+header {
+	background-color: #f8f3e5;
+}
+/*ヘッダーのayakalABOを大きくする*/
+
+.gnavayakaLABO {
+	font-size: 35px;
+	/*font-weight: bold;*/
+}
+.srcimg img {
+	height: 40px;
+	width: 40px;
+	padding: 2px 0px 0px;
+}
+.iconimg img {
+	height: 35px;
+	width: auto;
+	padding: 2px 0px 0px;
+}
+/*グローバルnav固定：要素の配置(ポジションプロパティ)：position: fixed;動かない*/
+
+.gnav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #f8f3e5;
+	z-index: 1;
+}
+/*グローバルnavを広げる：フレックス：①親要素：justify-content：両端あり・spase-around*/
+
+.gnavul {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	margin: 0px auto;
+	padding: 10px 0px;
+}
+/*グランドメニュー２重線*/
+
+.gnavul {
+	border-top: .5px double #000000;
+	border-bottom: .5px double #000000;
+	padding: 3px 0px 3px;
+	margin: 5px 0px;
+}
+/*--------------------------------------------------------------------------------------*/
+
+/*ローカルナビ 位置：センターへ*/
+
+.localnavul {
+	display: flex;
+	justify-content: center;
+}
+/*ローカルナビ 上下幅/文章間：広く*/
+
+.localnavul li {
+	margin: 14px 5px;
+}
+/*--------------------------------------------------------------------------------------*/
+
+.photop {
+	background-color: #f8f3e5;
+}
+.photoptitle h2 {
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	padding: 80px 0px 0px;
+	line-height: 1;
+}
+.photop h3 {
+	font-size: 35px;
+	display: flex;
+	justify-content: center;
+	padding: 20px 20px 0px;
+	line-height: 1;
+}
+.photop h4 {
+	font-size: 25px;
+	display: flex;
+	justify-content: center;
+	padding: 20px 20px 10px;
+	line-height: 1;
+}
+.photoh3trip {
+	font-size: 35px;
+	display: flex;
+	justify-content: center;
+	padding: 80px 20px 0px;
+	line-height: 1;
+}
+/*--------------------------------------------------------------------------------------*/
+
+/*ミュージック 画像*/
+
+#beautifulArea ul li img {
+	width: 100%;
+	height: 220px;
+	padding: 5px 5px;
+	object-fit: contain;
+}
+#tripArea ul li img {
+	width: 100%;
+	height: 280px;
+	padding: 5px 5px;
+	object-fit: contain;
+}
+/*--------------------------------------------------------------------------------------*/
+
+/*footer　背景*/
+
+footer {
+	background-color: #f8f3e5;
+	text-align: center;
+	font-size: 10px;
+}
+/*footer 幅*/
+
+.footertop {
+	line-height: 40px;
+}
+/*footer　傍線*/
+
+.example3 {
+	padding: 10px;
+	background: #f8f3e5;
+	position: relative;
+}
+/*--------------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 920px) {
+	/*--------------------------------------------------------------------------------------*/
+	/*ヘッダー*/
+	/* メニューアイコンの位置 */
+	.gMenu {
+		right: 0px;
+		top: 0px;
+	}
+	/* メニューアイコンの範囲 */
+	.gMenu .menu-icon {
+		padding: 55px 80px 0px 0px;
+		height: 38px;
+	}
+	/* メニューアイコン（三本線）の真ん中の線です */
+	.gMenu .menu-icon .navicon {
+		width: 50px;
+		/* 長さ */
+	}
+	/*サーチ大きさ*/
+	.srcimg img {
+		height: 90px;
+		width: 120px;
+		padding: 5px 20px 0px;
+		margin: 10px 0px 0px;
+	}
+	/*アイコン大きさ*/
+	.iconimg img {
+		height: 85px;
+		width: auto;
+		padding: 10px 0px 0px;
+		margin: 10px 0px 0px;
+	}
+	/*ヘッダーのayakalABOを大きくする*/
+	.gnavayakaLABO {
+		font-size: 70px;
+		/*font-weight: bold;*/
+		padding: 5px 0px 5px;
+	}
+	/*サーチ大きさ*/
+	.srcimg {
+		position: absolute;
+		top: 5px;
+		left: 80px;
+		height: 90px;
+		width: 120px;
+	}
+	/*アイコン大きさ*/
+	.iconimg {
+		position: absolute;
+		bottom: 40px;
+		right: 150px;
+		height: 80px;
+		width: auto;
+	}
+	.gnavayakaLABO {
+		top: 100px;
+		text-align: center;
+		font-size: 70px;
+	}
+	/*--------------------------------------------------------------------------------------*/
+	/*HOMEボタン*/
+	.pagetop {
+		height: 60px;
+		width: 120px;
+		font-size: 25px;
+		position: fixed;
+		left: 60px;
+		bottom: -7px;
+		background: #f8f3e5;
+		border-radius: 80px 80px 0px 0px;
+		/*border: solid 2px #000;*/
+		/*border-radius: 50%;*/
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 2;
+	}
+	/*--------------------------------------------------------------------------------------*/
+	/*トップページ　ローカルナビ位置*/
+	.localnavul {
+		font-size: 25px;
+		display: flex;
+		justify-content: center;
+		margin: 0px 0px 0px 0px;
+		padding: 0px 0px 20px 0px;
+		;
+	}
+	/*ローカルナビ マウスオーバー*/
+	.localnavul li a:hover {
+		text-decoration: underline solid;
+	}
+	/*--------------------------------------------------------------------------------------*/
+	.photoptitle h2 {
+		font-size: 60px;
+		padding: 130px 0px 0px;
+	}
+	.photop h3 {
+		justify-content: center;
+		padding: 0px 45px 10px;
+	}
+	.photoh3trip {
+		font-size: 35px;
+		display: flex;
+		justify-content: center;
+		padding: 130px 20px 0px;
+		line-height: 1;
+	}
+	/*ミュージック 画像横並び*/
+	.photop ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		padding: 0px 20%;
+	}
+	.photop ul li {
+		flex-basis: 30%;
+		text-align: center;
+	}
+	/*ミュージック 画像*/
+	.photop ul li img {
+		width: auto;
+		height: 172px;
+		padding: 0px 0px;
+		margin-bottom: 28px;
+		object-fit: cover;
+	}
+	.photop li img:hover {
+		filter: brightness(102%);
+		filter: drop-shadow(10px 10px #ccc);
+	}
+	/*--------------------------------------------------------------------------------------*/
+	/*footer　背景*/
+	footer {
+		text-align: center;
+		font-size: 20px;
+		padding: 0 50px 0 0;
+	}
+	/*footer 幅*/
+	.footertop {
+		line-height: 70px;
+	}
+	/*--------------------------------------------------------------------------------------*/
+}

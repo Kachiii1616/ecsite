@@ -1,0 +1,39 @@
+.fav-container{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr); /* 横2列 */
+	grid-template-rows: repeat(3, auto); /* 縦3列 */
+	grid-gap: 20px;
+	margin: 0px;
+}
+
+.fav-item{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+
+.fav-name {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+.fav-name a{
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.fav-price {
+    font-size: 15px;
+    margin: 10px 0px 5px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.favdeleteb a{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    color:#a19e9e ;
+  }
+
+

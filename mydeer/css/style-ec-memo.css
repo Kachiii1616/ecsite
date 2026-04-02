@@ -1,0 +1,40 @@
+/*-----purchase---------------------------------------------------------------------------------*/
+
+
+#purchaseArea {
+    background-color: #ffffff;
+    margin: 10px 0px;
+  }
+  
+  #purchaseArea p {
+    margin: 20px auto 0px;
+    text-align: center;
+  }
+  /*--------------------------------------------------------------------------------------*/
+
+  @media screen and (min-width: 920px) {
+  
+  /*--------------------------------------------------------------------------------------*/
+    
+
+  /*-----purchase---------------------------------------------------------------------------------*/
+
+
+#purchaseArea {
+    background-color: #ffffff;
+    margin: 10px 0px;
+  }
+  
+  #purchaseArea p {
+    margin: 20px auto 0px;
+    text-align: center;
+  }
+  /*--------------------------------------------------------------------------------------*/
+  
+
+  
+  .purp1 p{
+    font-size: 16px;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 20px 20px;
+  }

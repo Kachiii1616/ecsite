@@ -1,0 +1,64 @@
+/*---cart.php-----------------------------------------------------------------------------------*/
+
+.his-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr); /* 横2列 */
+	grid-template-rows: repeat(3, auto); /* 縦3列 */
+	grid-gap: 20px;
+	margin: 0px;
+}
+
+.his-item {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.his-name {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.his-name a{
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.his-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.his-price {
+  font-size: 15px;
+  margin: 10px 0px 5px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.his-quantity {
+  width: 50px;
+  margin-bottom: 5px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.his-total {
+  text-align: center;
+  margin: 20px;
+  font-weight: bold;
+}
+
+.total-header p {
+  font-family: 'Noto Sans JP', sans-serif;
+  margin: 20px;
+  font-size: 25px;
+}
+
+#hisshowArea{
+  margin: 10px 20px;
+}
+
+#hisshowArea p{
+font-family: 'Noto Sans JP', sans-serif;
+}
