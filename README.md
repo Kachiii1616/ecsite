@@ -4,7 +4,7 @@ ECサイトのポートフォリオです。
 
 ## デモ
 
-[ECサイトデモ](docs/demo.gif)
+[ECサイトデモ](images/demo.gif)
 
 ## 使用技術
 - PHP
